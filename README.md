@@ -1,2 +1,3 @@
-# digitalhouse_android
-Arquivos e Exercícios do curso de android da Digital House
+# Digital House - Curso de Android
+
+Arquivos e atividades realizados durante o curso de android da Digital House 📱️.
