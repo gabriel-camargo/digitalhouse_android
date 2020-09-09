@@ -1,3 +1,3 @@
 # Digital House - Curso de Android
 
-Arquivos e atividades realizados durante o curso de android da Digital House 📱️.
+Arquivos e atividades realizadas durante o curso de Android da Digital House 📱️.
