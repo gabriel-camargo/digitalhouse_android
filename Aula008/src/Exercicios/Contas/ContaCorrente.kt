@@ -18,7 +18,7 @@ class ContaCorrente(numConta: Int, val taxaOperacao: Double): ContaBancaria(numC
     }
 
     override fun depositar(valor: Double): Boolean {
-        if(valor < (this.taxaOperacao + this.saldo)) {
+        if((this.saldo + valor) < taxaOperacao){
             println("O valor de depósito deve ser maior que a taxa de operação!")
             return false
         }

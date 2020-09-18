@@ -1,7 +1,7 @@
 package Exercicios.Contas
 
 class Banco: IImprimivel {
-    var contasBancarias = ArrayList<ContaBancaria>()
+    private val contasBancarias = ArrayList<ContaBancaria>()
 
     fun inserir(conta: ContaBancaria) {
         contasBancarias.add(conta)
@@ -11,9 +11,7 @@ class Banco: IImprimivel {
         contasBancarias.remove(conta)
     }
 
-    fun procurarConta(numContaPesquisa: Int): ContaBancaria? {
-        return contasBancarias.find { it.numConta == numContaPesquisa }
-    }
+    fun procurarConta(numContaPesquisa: Int) = contasBancarias.find { it.numConta == numContaPesquisa }
 
     override fun mostrarDados() {
         contasBancarias.forEach {
