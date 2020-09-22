@@ -1,0 +1,55 @@
+Exercício 1
+===
+1. Criar a classe Pessoa que tenha como propriedades nome (String) e RG (Integer).
+2. Na classe Main, criar duas pessoas com o mesmo número de RG.
+3. Usando equals, comparar se a primeira pessoa criada é igual à segunda.
+Qual é o resultado?
+R: false
+
+4. Sobrescrever o equals da classe Pessoa para que compare apenas o número de RG.
+5. Refazer a comparação utilizando o equals. Qual é o resultado? O que mudou? Por quê?
+R: true, pois o método equals e hashCode só levam em conta o atributo RG da classe pessoa para comparação.
+
+Exercício 2
+===
+
+1. Criar a classe Coca que tenha como propriedades um tamanho (Integer) e preço (Double).
+2. Na classe Main, criar duas Cocas com o mesmo tamanho.
+3. Usando equals, comparar se a primeira Coca criada é igual à segunda.
+Qual é o resultado?
+R: false
+
+4. Sobrescrever o equals da classe Coca para que compare apenas o tamanho.
+5. Refazer a comparação utilizando o equals. Qual é o resultado? O que mudou? Por quê?
+R: O resultado agora é true, pois antes estava sendo comparado o endereço na memória dos objetos,
+e agora está sendo comparado o atribudo tamanho.
+
+Exercício 3 
+===
+1. Criar uma classe Aluno que tenha como propriedades um nome (String) e numeroDeAluno (Integer).
+2. Na classe Main, criar uma lista de alunos e adicionar quatro alunos novos.
+3. Criar um aluno novo com um número de aluno contido na lista e perguntar se
+ele está na lista (utilizar a função contains).
+R: Retornou false
+
+4. Sobrescrever o equals da classe Aluno para que compare apenas o número de aluno.
+5. Perguntar novamente se o aluno novo está na lista.
+Qual é o resultado? O que mudou? Por quê?
+R: O resultado agora é true. O resultado mudou porque antes estava sendo
+comparado o endereço da memória em que o  objeto foi armazenado, e agora está
+sendo comparado apenas o atribudo numeroDeAluno.
+
+
+Exercício 4
+===
+1. Criar uma classe Funcionário que tenha como propriedades um nome (String) e numeroDeRegistro (Integer).
+2. Criar na classe Main uma lista de funcionários e adicionar quatro funcionários novos.
+3. Criar um funcionário novo com um número de registro contido na lista e
+perguntar se ele está na lista (utilizar a função contains)
+R: Retornou false
+
+4. Sobrescrever o equals da classe Funcionário para que compare apenas o número de registro.
+5. Perguntar novamente se o funcionário novo está na lista. Qual é o resultado? O que mudou? Por quê?
+R: O resultado agora é true. O resultado mudou porque antes estava sendo
+comparado o endereço da memória em que o  objeto foi armazenado, e agora está
+sendo comparado apenas o atribudo numeroDeRegistro.
