@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mainPadding">20dp</dimen>
+    <dimen name="labelTextSize">18sp</dimen>
+    <dimen name="marginBottomEdit">20dp</dimen>
+    <dimen name="paddingButton">50dp</dimen>
+    <dimen name="marginTopAnswer">50dp</dimen>
+    <dimen name="answerTextSize">30sp</dimen>
+</resources>

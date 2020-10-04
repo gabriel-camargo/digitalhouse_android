@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Calculo De Salário</string>
+    <string name="txtHorasTrabalhadas">Horas Trabalhadas</string>
+    <string name="digite_horas">Quantidade de Horas Trabalhadas</string>
+    <string name="txtValorHora">Valor da Hora</string>
+    <string name="digite_valor_hora">Valor da Hora Trabalhada</string>
+    <string name="calcular">Calcular</string>
+    <string name="reais">"R$ "</string>
+    <string name="respostaPadrao">XXXX,XX</string>
+</resources>
