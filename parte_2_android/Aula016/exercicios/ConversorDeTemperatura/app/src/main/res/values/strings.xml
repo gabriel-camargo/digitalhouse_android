@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Conversor de Temperatura</string>
+    <string name="title">Temperatura em °C</string>
+    <string name="digite_a_temperatura">Digite a temperatura</string>
+    <string name="converter">Converter</string>
+    <string name="x">x</string>
+    <string name="f">°F</string>
+</resources>
