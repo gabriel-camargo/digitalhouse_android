@@ -12,23 +12,23 @@ class CreateAccount : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
 
-        btLogIn.setOnClickListener(this)
-        checkAgree.setOnClickListener(this)
-        btSignUp.setOnClickListener(this)
+        btnLogInSignUp.setOnClickListener(this)
+        cbAgreeSignUp.setOnClickListener(this)
+        btnSignUp.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
         when(p0) {
-            btLogIn -> goToLogin()
-            checkAgree -> clickCheckAgree()
-            btSignUp -> signUp()
+            btnLogInSignUp -> goToLogin()
+            cbAgreeSignUp -> clickCheckAgree()
+            btnSignUp -> signUp()
         }
     }
 
     private fun signUp() {
-        val name = etNameSignUp.text.toString()
-        val email = etEmailSignUp.text.toString()
-        val password = etPasswordSignUp.text.toString()
+        val name = edtNameSignUp.text.toString()
+        val email = edtEmailSignUp.text.toString()
+        val password = edtPasswordSignUp.text.toString()
 
         if(name.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Todos os campos são obrigatórios!", Toast.LENGTH_SHORT).show()
@@ -45,7 +45,7 @@ class CreateAccount : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun clickCheckAgree() {
-        btSignUp.isEnabled = checkAgree.isChecked
+        btnSignUp.isEnabled = cbAgreeSignUp.isChecked
     }
 
     private fun goToLogin() {

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="sans-serif"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="@color/colorWhite"
         android:textSize="34sp"
         android:layout_marginTop="80dp"/>
@@ -25,7 +25,7 @@
         android:layout_marginBottom="60dp"
         android:layout_marginTop="4dp"
         android:fontFamily="sans-serif-light"
-        android:text="TO CONTINUE"
+        android:text="@string/to_continue"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
         android:letterSpacing="0.3"
@@ -40,7 +40,7 @@
         android:layout_gravity="center|center_vertical">
 
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/edtEmailMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
@@ -52,7 +52,7 @@
             />
 
         <EditText
-            android:id="@+id/edtSenha"
+            android:id="@+id/edtPassWordMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
@@ -63,7 +63,7 @@
             android:inputType="textPassword"/>
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnLogInMain"
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:textColor="@color/colorMain"
@@ -75,7 +75,7 @@
             android:layout_marginTop="50dp"/>
 
         <Button
-            android:id="@+id/btnCreateAccount"
+            android:id="@+id/btnCreateAccountMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
