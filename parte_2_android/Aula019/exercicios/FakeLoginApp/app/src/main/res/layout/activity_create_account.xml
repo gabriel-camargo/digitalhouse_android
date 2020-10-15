@@ -40,7 +40,7 @@
         android:layout_gravity="center|center_vertical">
 
         <EditText
-            android:id="@+id/etNameSignUp"
+            android:id="@+id/edtNameSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -51,7 +51,7 @@
             android:backgroundTint="@color/colorMain"/>
 
         <EditText
-            android:id="@+id/etEmailSignUp"
+            android:id="@+id/edtEmailSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -63,7 +63,7 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
-            android:id="@+id/etPasswordSignUp"
+            android:id="@+id/edtPasswordSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -74,7 +74,7 @@
             android:layout_marginTop="20dp"/>
 
         <CheckBox
-            android:id="@+id/checkAgree"
+            android:id="@+id/cbAgreeSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -82,7 +82,7 @@
             android:text="@string/privacy_policy" />
 
         <Button
-            android:id="@+id/btSignUp"
+            android:id="@+id/btnSignUp"
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:textColor="@color/colorWhite"
@@ -95,7 +95,7 @@
             android:enabled="false"/>
 
         <Button
-            android:id="@+id/btLogIn"
+            android:id="@+id/btnLogInSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
