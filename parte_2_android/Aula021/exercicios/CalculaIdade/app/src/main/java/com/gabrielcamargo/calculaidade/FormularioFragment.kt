@@ -1,10 +1,13 @@
 package com.gabrielcamargo.calculaidade
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_formulario.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +23,7 @@ class FormularioFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var iCalcular: ICalcular
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +38,24 @@ class FormularioFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_formulario, container, false)
+//        return inflater.inflate(R.layout.fragment_formulario, container, false)
+
+        val viewForm = inflater.inflate(R.layout.fragment_formulario, container, false)
+
+        viewForm.btnCalcularForm.setOnClickListener{
+            val nome = viewForm.edtNomeForm.editText?.text.toString()
+            val ano = viewForm.edtAnoForm.editText?.text.toString().toInt()
+
+            iCalcular.calcularIdade(nome, ano)
+        }
+
+        return viewForm
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        iCalcular = context as ICalcular
     }
 
     companion object {
