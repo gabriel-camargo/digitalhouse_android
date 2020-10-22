@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsActivity"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="16dp" tools:ignore="RtlCompat"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/imagemDetails"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Foto de Rick and Morty"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/txtTitleNameDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imagemDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#dedede"
+        android:layout_marginTop="15dp"
+        android:text="Nome: "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtNameDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imagemDetails"
+        app:layout_constraintStart_toEndOf="@+id/txtTitleNameDetails"
+        android:textColor="#dedede"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="8dp"
+        android:text="Nome"
+        />
+
+    <TextView
+        android:id="@+id/txtTitleGenderDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtTitleNameDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#dedede"
+        android:layout_marginTop="8dp"
+        android:text="Gênero: "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtGenderDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtTitleNameDetails"
+        app:layout_constraintStart_toEndOf="@+id/txtTitleGenderDetails"
+        android:textColor="#dedede"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Gênero"
+        />
+
+    <TextView
+        android:id="@+id/txtTitleLocationDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtGenderDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#dedede"
+        android:layout_marginTop="8dp"
+        android:text="Localização: "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtLocationDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtGenderDetails"
+        app:layout_constraintStart_toEndOf="@+id/txtTitleLocationDetails"
+        android:textColor="#dedede"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Localização"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
