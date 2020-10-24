@@ -9,9 +9,13 @@
     <color name="orange_200">#FFCC80</color>
     <color name="orange_500">#FF9800</color>
     <color name="orange_700">#F57C00</color>
+
     <color name="cyan_200">#80DEEA</color>
     <color name="cyan_500">#00BCD4</color>
     <color name="cyan_700">#0097A7</color>
+    <color name="cyan_800">#00838F</color>
+    <color name="cyan_900">#006064</color>
+
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
