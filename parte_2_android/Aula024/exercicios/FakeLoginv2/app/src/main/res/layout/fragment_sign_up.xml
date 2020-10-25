@@ -30,7 +30,7 @@
             android:paddingVertical="30dp">
 
             <TextView
-                android:id="@+id/txt_welcomeBack_signUp"
+                android:id="@+id/txtCreateYourAccount_signUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/create_account"
@@ -48,7 +48,7 @@
                 android:hint="@string/username"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_welcomeBack_signUp">
+                app:layout_constraintTop_toBottomOf="@+id/txtCreateYourAccount_signUp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

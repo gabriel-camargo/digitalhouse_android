@@ -5,28 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.gabrielcamargo.fakeloginv2.users.UserService
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputLayout
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SignInFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SignInFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class SignInFragment : Fragment(), View.OnClickListener {
+    private lateinit var viewSignIn: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -34,26 +23,42 @@ class SignInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_in, container, false)
+        viewSignIn = inflater.inflate(R.layout.fragment_sign_in, container, false)
+
+        val btnSignIn = viewSignIn.findViewById<MaterialButton>(R.id.btnSignIn_signIn)
+        btnSignIn.setOnClickListener(this)
+
+        return viewSignIn
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SignInFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(username: String) =
             SignInFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+                arguments = Bundle().apply {}
             }
+    }
+
+    override fun onClick(v: View?) {
+        when(v!!.id) {
+            R.id.btnSignIn_signIn -> clickSignIn()
+        }
+    }
+
+    private fun clickSignIn() {
+        val usernameInput = viewSignIn.findViewById<TextInputLayout>(R.id.txtUsername_signIn)
+        val usernameText = usernameInput.editText?.text.toString()
+
+        val passwordInput = viewSignIn.findViewById<TextInputLayout>(R.id.txtPassword_signIn)
+        val passwordText = passwordInput.editText?.text.toString()
+
+        val user = UserService.logIn(usernameText, passwordText)
+
+        if(user == null) {
+            Snackbar.make(viewSignIn, "Email ou senha incorretos!", Snackbar.LENGTH_SHORT).show()
+        } else {
+            Snackbar.make(viewSignIn, "Login Success!", Snackbar.LENGTH_SHORT).show()
+
+        }
     }
 }

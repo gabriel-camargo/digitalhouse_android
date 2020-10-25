@@ -1,11 +1,15 @@
 package com.gabrielcamargo.fakeloginv2
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.textfield.TextInputLayout
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), INewUsername {
+
+    private val signInFragment = SignInFragment()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         tab.setupWithViewPager(pager)
 
         val fragments = listOf(
-                SignInFragment(), SignUpFragment()
+                signInFragment, SignUpFragment()
         )
 
         val titulos = listOf(
@@ -24,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         )
 
         pager.adapter = ViewPagerAdapter(fragments, titulos, supportFragmentManager)
+    }
 
+    override fun setNewUsername(username: String) {
+        val usernameInput = signInFragment.activity?.findViewById<TextInputLayout>(R.id.txtUsername_signIn)
+        usernameInput?.editText?.setText(username)
     }
 }

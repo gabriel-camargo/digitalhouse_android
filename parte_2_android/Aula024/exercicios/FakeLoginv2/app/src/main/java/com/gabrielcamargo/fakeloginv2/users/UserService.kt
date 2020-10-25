@@ -19,7 +19,22 @@ class UserService {
         /**
          * Registra um usuário
          */
-        fun register(username: String, password: String) {
+        fun register(username: String, password: String, confirmPassword: String) {
+
+            // verifica se um dos campos está vazio
+            if(username.isEmpty()) {
+                throw Exception("Preencha o campo username!")
+            }
+
+            if(password.isEmpty()) {
+                throw Exception("Preencha o campo de senha!")
+            }
+
+            //verifica se a senha e a confirmação de senha são iguais
+            if(password != confirmPassword) {
+                throw Exception("As senhas não correspondem!")
+            }
+
             // Verifica se já existe usuário com email cadastrado
             val user = users.find {
                 it.username == username.toLowerCase().trim()
