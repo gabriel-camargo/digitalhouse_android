@@ -17,7 +17,7 @@
         tools:listitem="@layout/item_to_do"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
+        android:id="@+id/btnAddTodo_fragmentToDo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Adicionar"

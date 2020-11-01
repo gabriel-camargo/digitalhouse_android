@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,8 +14,9 @@ import com.gabrielcamargo.todolist.R
 import com.gabrielcamargo.todolist.main.model.ToDoModel
 import com.gabrielcamargo.todolist.main.repository.ToDoListRepository
 import com.gabrielcamargo.todolist.main.viewmodel.ToDoListViewModel
+import com.google.android.material.button.MaterialButton
 
-class ToDoListFragment : Fragment() {
+class ToDoListFragment : Fragment(), View.OnClickListener {
 
     lateinit var viewToDo: View
     lateinit var viewModel: ToDoListViewModel
@@ -29,6 +31,7 @@ class ToDoListFragment : Fragment() {
     ): View? {
         viewToDo = inflater.inflate(R.layout.fragment_to_do_list, container, false)
 
+
         viewModel = ViewModelProvider(
             this,
             ToDoListViewModel.ToDoListViewModelFactory(ToDoListRepository(viewToDo.context))
@@ -39,6 +42,9 @@ class ToDoListFragment : Fragment() {
         })
 
         viewModel.getToDos()
+
+        val btnAddToDo = viewToDo.findViewById<MaterialButton>(R.id.btnAddTodo_fragmentToDo)
+        btnAddToDo.setOnClickListener(this)
 
         return viewToDo
     }
@@ -56,7 +62,18 @@ class ToDoListFragment : Fragment() {
         }
     }
 
+
+    fun addNewTodo() {
+        viewModel.setToDo(ToDoModel("Nova tarefa"))
+    }
+
     companion object {
         fun newInstance() = ToDoListFragment()
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.getId()){
+            R.id.btnAddTodo_fragmentToDo -> addNewTodo()
+        }
     }
 }
