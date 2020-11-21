@@ -7,7 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +27,7 @@ class CategoriesFragment : Fragment() {
     private lateinit var _viewModel: CategoriesViewModel
     private lateinit var _myView: View
     private lateinit var _recyclerView: RecyclerView
+    private lateinit var _navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,9 +42,11 @@ class CategoriesFragment : Fragment() {
 
         _recyclerView = _myView.findViewById<RecyclerView>(R.id.recyclerView_categoriesFragment)
 
+        _navController = Navigation.findNavController(_myView)
+
         _viewModel = ViewModelProvider(
             this,
-            CategoriesViewModel.CategoriesViewModelFactory(CategoriesRepository(view.context))
+            CategoriesViewModel.CategoriesViewModelFactory(CategoriesRepository())
         ).get(CategoriesViewModel::class.java)
 
         _viewModel.getCategories().observe(viewLifecycleOwner, {
@@ -51,7 +57,8 @@ class CategoriesFragment : Fragment() {
     private fun createList(categories: List<String>) {
         val viewManager = LinearLayoutManager(_myView.context)
         val viewAdapter = CategoriesAdapter(categories) {
-            Toast.makeText(_myView.context, it, Toast.LENGTH_SHORT).show()
+            val bundle = bundleOf(getString(R.string.category) to it)
+            _navController.navigate(R.id.jokeFragment, bundle)
         }
 
         _recyclerView.addItemDecoration(

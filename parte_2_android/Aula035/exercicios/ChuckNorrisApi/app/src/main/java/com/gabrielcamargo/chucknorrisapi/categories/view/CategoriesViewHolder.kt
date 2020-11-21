@@ -9,6 +9,6 @@ class CategoriesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val txtCategory: TextView = view.findViewById(R.id.txtCategory_itemCategory)
 
     fun bind(txt: String) {
-        txtCategory.text = txt
+        txtCategory.text = txt.capitalize()
     }
 }
