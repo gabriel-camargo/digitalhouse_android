@@ -3,17 +3,19 @@ package com.gabrielcamargo.chucknorrisapi.categories.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.liveData
 import com.gabrielcamargo.chucknorrisapi.categories.repository.CategoriesRepository
+import kotlinx.coroutines.Dispatchers
 
 class CategoriesViewModel(
     private val repository: CategoriesRepository
 ) : ViewModel() {
-    val categories = MutableLiveData<MutableList<String>>()
+    var categories: List<String> = listOf()
 
-    fun getCategories() {
-        repository.getCategories {
-            categories.value = it
-        }
+    fun getCategories() = liveData(Dispatchers.IO){
+        val response = repository.getCategories()
+        categories = response
+        emit(response)
     }
 
     @Suppress("UNCHECKED_CAST")

@@ -23,6 +23,7 @@ class CategoriesFragment : Fragment() {
 
     private lateinit var _viewModel: CategoriesViewModel
     private lateinit var _myView: View
+    private lateinit var _recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,33 +36,32 @@ class CategoriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        _recyclerView = _myView.findViewById<RecyclerView>(R.id.recyclerView_categoriesFragment)
+
         _viewModel = ViewModelProvider(
             this,
             CategoriesViewModel.CategoriesViewModelFactory(CategoriesRepository(view.context))
         ).get(CategoriesViewModel::class.java)
 
-        _viewModel.categories.observe(viewLifecycleOwner, Observer {
+        _viewModel.getCategories().observe(viewLifecycleOwner, {
             createList(it)
         })
-
-        _viewModel.getCategories()
     }
 
     private fun createList(categories: List<String>) {
         val viewManager = LinearLayoutManager(_myView.context)
-        val recyclerView = _myView.findViewById<RecyclerView>(R.id.recyclerView_categoriesFragment)
         val viewAdapter = CategoriesAdapter(categories) {
             Toast.makeText(_myView.context, it, Toast.LENGTH_SHORT).show()
         }
 
-        recyclerView.addItemDecoration(
+        _recyclerView.addItemDecoration(
             DividerItemDecoration(
-                recyclerView.context,
+                _recyclerView.context,
                 DividerItemDecoration.VERTICAL
             )
         )
 
-        recyclerView.apply {
+        _recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
