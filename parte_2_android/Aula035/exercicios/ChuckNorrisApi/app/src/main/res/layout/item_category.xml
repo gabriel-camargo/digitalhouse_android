@@ -10,7 +10,8 @@
         android:id="@+id/txtCategory_itemCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/md_padding"
+        android:padding="@dimen/lg_padding"
+        android:layout_gravity="center"
         android:textSize="20sp"
         tools:text="@tools:sample/lorem" />
 
